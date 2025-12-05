@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía visual y checklist para el calado de distribución Ford 1.6 TDCi.">
+    <meta name="theme-color" content="#121212">
+    <title>Guía Calado Ford 1.6 TDCi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <h1>Guía Calado 1.6 TDCi</h1>
+                <p class="subtitle">Motor HHDA / PSA DV6</p>
+            </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Cambiar Tema">
+                <!-- Sun Icon -->
+                <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <!-- Moon Icon -->
+                <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Visual Guide Section -->
+        <details open>
+            <summary>
+                <h2>0. Esquema Visual de Calado</h2>
+            </summary>
+            <div class="step-list">
+                <div class="diagram-container">
+                    <img src="assets/timing_diagram.png" alt="Esquema Calado Ford 1.6 TDCi">
+                    <div class="diagram-caption">
+                        <p><strong>Puntos Claros de Sincronización:</strong></p>
+                        <ul>
+                            <li><strong>Arbol de Levas:</strong> Orificio de bloqueo a las ~11:00 (Pasador 8mm).</li>
+                            <li><strong>Cigüeñal:</strong> Orificio de bloqueo en volante motor o tras motor de
+                                arranque.</li>
+                            <li><strong>Tensor:</strong> Alinear índice móvil con la muesca fija.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <div class="controls sticky">
+            <button id="btnCheckAll" class="btn secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="vertical-align: middle; margin-right: 4px;">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Marcar Todo
+            </button>
+            <button id="btnUncheckAll" class="btn secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="vertical-align: middle; margin-right: 4px;">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                </svg>
+                Desmarcar
+            </button>
+        </div>
+
+        <!-- 1. Preparación -->
+        <details open>
+            <summary>
+                <h2>1. Preparación y Seguridad</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Desconectar batería (borne negativo).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Levantar vehículo y asegurar con borriquetas.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Desmontar rueda delantera derecha y paso de rueda.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Retirar correa de accesorios.</span>
+                </label>
+                <div class="alert warning">
+                    <strong>¡Ojo!</strong> Dibuja el sentido de giro de la correa accesoria si vas a reutilizarla.
+                </div>
+            </div>
+        </details>
+
+        <!-- 2. Posicionar PMS -->
+        <details>
+            <summary>
+                <h2>2. Sincronización (PMS)</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Girar el cigüeñal (sentido horario) desde el tornillo de la polea.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Alinear agujero de calado del árbol de levas (aprox. a las 11-12 en punto).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Alinear agujero de calado del cigüeñal (detrás del motor de arranque o en volante motor según
+                        útil).</span>
+                </label>
+            </div>
+        </details>
+
+        <!-- 3. Útiles de Calado -->
+        <details>
+            <summary>
+                <h2>3. Colocar Útiles</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Insertar pasador de calado en árbol de levas (Ø 8mm aprox).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Insertar pasador de calado en cigüeñal/volante motor.</span>
+                </label>
+                <div class="alert danger">
+                    <strong>¡Ojo!</strong> Asegúrate de que los útiles entran suavemente. No fuerces. El motor debe
+                    estar INMÓVIL.
+                </div>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Bloquear volante motor si es necesario para aflojar polea cigüeñal.</span>
+                </label>
+            </div>
+        </details>
+
+        <!-- 4. Desmontaje -->
+        <details>
+            <summary>
+                <h2>4. Desmontar Correa</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Aflojar tornillo polea cigüeñal (¡Duro!).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Retirar polea damper.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Retirar carcasas de distribución inferior y superior.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Aflojar tornillo del tensor de la correa distribución.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Retirar correa vieja y rodillo tensor.</span>
+                </label>
+            </div>
+        </details>
+
+        <!-- 5. Montaje -->
+        <details>
+            <summary>
+                <h2>5. Montaje</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span><strong>Bomba de Agua:</strong> Limpiar asiento, junta nueva y apretar tornillos a <strong>10
+                            Nm</strong>.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Instalar nuevo rodillo tensor (asegurar pestaña en alojamiento). Apretar tuerca a mano.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Instalar rodillo guía (idler) y apretar a <strong>35-37 Nm</strong>.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Colocar correa nueva (cigüeñal -> guía -> árbol levas -> bomba alta -> bomba agua ->
+                        tensor).</span>
+                </label>
+                <div class="alert warning">
+                    <strong>¡Ojo!</strong> Mantén la correa tensa en el lado opuesto al tensor.
+                </div>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Tensar correa: girar tensor (antihorario) hasta que el índice móvil sobrepase la muesca y
+                        apretar. Girar motor 4 vueltas.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Reajustar tensión: aflojar y llevar índice móvil EXACTAMENTE a la muesca.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Apretar tuerca del tensor a <strong>25 Nm</strong> (Max 30 Nm).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Apretar tornillo polea cigüeñal: <strong>30 Nm + 180°</strong> (Usar tornillo NUEVO).</span>
+                </label>
+            </div>
+        </details>
+
+        <!-- 6. Comprobaciones -->
+        <details>
+            <summary>
+                <h2>6. Comprobaciones Finales</h2>
+            </summary>
+            <div class="step-list">
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Retirar TODOS los útiles de calado.</span>
+                </label>
+                <div class="alert danger">
+                    <strong>¡MUY IMPORTANTE!</strong> Si intentas girar el motor con los útiles puestos, romperás algo
+                    grave.
+                </div>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Girar cigüeñal 4 vueltas completas a mano (sentido horario).</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Verificar que los útiles entran de nuevo suavemente.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Si todo cuadra, montar carcasas, polea damper y correa accesorios.</span>
+                </label>
+                <label class="step">
+                    <input type="checkbox">
+                    <span>Arrancar motor y comprobar sonido.</span>
+                </label>
+            </div>
+        </details>
+
+        <!-- Datos Técnicos -->
+        <details>
+            <summary>
+                <h2>Datos Técnicos (Pares de Apriete)</h2>
+            </summary>
+            <div class="step-list">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;">🔧 <strong>Tornillo Cigüeñal:</strong> 30 Nm + 180° (¡Nuevo!)</li>
+                    <li style="margin-bottom: 8px;">🔧 <strong>Tuerca Tensor:</strong> 25-30 Nm</li>
+                    <li style="margin-bottom: 8px;">🔧 <strong>Rodillo Guía:</strong> 35-37 Nm</li>
+                    <li style="margin-bottom: 8px;">🔧 <strong>Bomba de Agua:</strong> 10 Nm</li>
+                    <li style="margin-bottom: 8px;">🔧 <strong>Tornillos Polea Árbol Levas:</strong> 43 Nm (si se
+                        aflojan)</li>
+                    <li style="margin-bottom: 8px;">🔧 <strong>Tornillos Carcasas Plástico:</strong> 5-7 Nm</li>
+                </ul>
+            </div>
+        </details>
+
+        <section class="footer-actions">
+            <button id="btnReset" class="btn danger-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="vertical-align: middle; margin-right: 4px;">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                    <path d="M3 3v5h5"></path>
+                </svg>
+                Reiniciar Checklist
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Guía Mecánica</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
